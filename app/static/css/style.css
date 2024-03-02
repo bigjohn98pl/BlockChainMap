@@ -1,0 +1,135 @@
+body, html {
+    overflow: hidden; /* Prevents scrolling */
+    width: 100%;
+    height: 100%;
+    margin: 0%;
+}
+
+#network-map {
+    width: 100vw; /* Full width of the viewport */
+    height: 100vh; /* Full height of the viewport */
+    position: relative; /* Relative positioning for the map */
+    overflow: hidden; /* Hide the overflowed contents */
+}
+
+#map-contents {
+    width: 100%; /* Full width of the parent */
+    height: 100%; /* Full height of the parent */
+    transform-origin: 0 0; /* Set transform origin to top left */
+}
+
+#svg-connect{
+    position: absolute;
+    top: 0; 
+    left: 0;
+    width: 100%; height: 100%;
+    background-color:antiquewhite;
+}
+.account-node {
+    width: 100px;
+    height: 100px;
+    background-color: #4CAF50;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute; /* Position nodes absolutely within the network-map container */
+    /* Initial position, can be set to any default or left unset */
+    top: calc(50% - 50px); /* Center vertically (adjust based on the height) */
+    left: calc(50% - 50px); /* Center horizontally (adjust based on the width) */
+    transition: transform 0.3s;
+    text-align: center;
+    color: white;
+    font-size: 16px;
+    cursor: grab; /* Indicates that the item is draggable */
+}
+
+/* Style to apply while dragging */
+.account-node:active {
+    cursor: pointer;
+}
+
+.account-node.selected {
+    border: 2px solid rgb(56, 146, 26); /* Example style for selected nodes */
+}
+
+#svg-connect line {
+    stroke: rgb(0, 255, 30); /* Color of the line */
+    stroke-width: 2px; /* Thickness of the line */
+}
+
+#input-address{
+    display: flex;
+    position: relative;
+}
+
+.menu-bar {
+    height: 100%;
+    background-color: #333;
+    width: 0;
+    position: fixed;
+    z-index: 9;
+    top: 0;
+    right: 0; /* Position the menu to the right */
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.menu-bar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.menu-bar a:hover {
+    color: #f1f1f1;
+}
+
+.closebtn {
+    position: absolute;
+    top: 0;
+    left: 25px; /* Position the close button to the left of the menu */
+    font-size: 36px;
+}
+.menu-item {
+    color: #fff;
+    padding: 10px 20px;
+}
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    margin: 20px;
+    border: none;
+    cursor: pointer;
+    width: 80%;
+    display: block; /* Center the button in the menu */
+}
+button:hover {
+    background-color: #45a049;
+}
+
+input[type="text"] {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.zoom-controls {
+    position: fixed; /* Fixed position to keep the buttons in place */
+    top: 10px; /* Distance from the top */
+    left: 10px; /* Distance from the left */
+    z-index: 100; /* Ensure it's above other elements */
+  }
+  
+  .zoom-controls button {
+    display: block; /* Stack buttons vertically */
+    margin-bottom: 5px; /* Space between buttons */
+    padding: 10px; /* Padding inside the buttons */
+    font-size: 16px; /* Font size of the button text */
+  }

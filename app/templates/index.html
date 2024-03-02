@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Account node</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <!-- This div acts as the panning container -->
+    <div id="network-map">
+        <div id="map-contents">
+            <svg id="svg-connect">
+                <!-- Lines will be added here -->
+            </svg>
+            <!-- Nodes will be added here -->
+            <div id="accountnode" class="account-node">Click to open menu</div>
+        </div>
+    </div>
+
+    <div class="zoom-controls">
+        <h1>Network-map</h1>
+        <button onclick="zoomIn()">+</button>
+        <button onclick="zoomOut()">-</button>
+        <button onclick="addNode()">Add Node</button>
+        <button id="connectNodesButton" onclick="connectSelectedNodes()">Connect Nodes</button>
+
+    </div>
+
+    <div id="mySidenav" class="menu-bar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="menu-item">
+          <label for="accountAddressInput">Account Address:</label>
+          <input type="text" id="accountAddressInput" name="inputAddress" placeholder="Enter account address">
+        </div>
+        <div class="menu-item">
+          <label for="accountTagInput">Account Tag:</label>
+          <input type="text" id="accountTagInput" placeholder="Enter account tag">
+        </div>
+        <div class="menu-item">Amount of Money: <span id="amountMoney">$1000</span></div>
+        <button id="get-transactions-btn">Show Transactions</button>
+        <button id="post-address-btn">Set Account Details</button>
+      </div>
+
+    <script src="{{ url_for('static', filename='js/panning_feature.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/zoom_feature.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/navbar_feature.js') }}"></script>
+    <script type="text/javascript">
+        var csrfToken = "{{ csrf_token() }}";
+    </script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+
+</html>

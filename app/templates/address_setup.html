@@ -1,0 +1,16 @@
+{% from "_formhelpers.html" import render_field %}
+<div id="mySidenav" class="menu-bar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <form method="post">
+        {{ form.hidden_tag() }}
+        <div class="menu-item">
+            {{ render_field(form.account_address, id="accountAddressInput", placeholder="Enter account address") }}
+        </div>
+        <div class="menu-item">
+            {{ render_field(form.account_tag, id="accountTagInput", placeholder="Enter account tag") }}
+        </div>
+        <div class="menu-item">Amount of Money: <span id="amountMoney">$1000</span></div>
+        {{ form.show_transactions(class="btn") }}
+        {{ form.set_account_details(class="btn") }}
+    </form>
+</div>
