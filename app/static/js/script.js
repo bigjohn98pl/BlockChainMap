@@ -9,11 +9,11 @@ function addNode() {
   
   newNode.classList.add('account-node');
   newNode.classList.add('draggable-node');
-  newNode.textContent = 'Node ' + newNodeCount; // Set default text with incrementing number
   
   // Assign default data attributes for address and tag
   newNode.setAttribute('data-address', 'Address ' + newNodeCount);
   newNode.setAttribute('data-tag', 'Tag ' + newNodeCount);
+  newNode.textContent = newNode.getAttribute('data-tag') // Set default text as a tag
   newNode.id = 'Address ' + newNodeCount;
   // Assign an onclick event to open the menu bar and keep track of the selected node
   newNode.onclick = function() {

@@ -15,7 +15,7 @@
                 <!-- Lines will be added here -->
             </svg>
             <!-- Nodes will be added here -->
-            <div id="accountnode" class="account-node">Click to open menu</div>
+            <!-- <div id="accountnode" class="account-node">Click to open menu</div> -->
         </div>
     </div>
 
@@ -50,6 +50,9 @@
         var csrfToken = "{{ csrf_token() }}";
     </script>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script>
+        addNode(); 
+    </script>
 </body>
 
 </html>
